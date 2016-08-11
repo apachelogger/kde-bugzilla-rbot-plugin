@@ -17,7 +17,7 @@ class PluginTest < Test::Unit::TestCase
     message.stubs(:message).returns('yolo brooom bug 123')
 
     plugin = BugzillaPlugin.new
-    plugin.expects(:bug).with(message, '123')
+    plugin.expects(:bug).with(message, number: '123')
     plugin.unreplied(message)
   end
 
