@@ -14,9 +14,10 @@ class PluginTest < Test::Unit::TestCase
 
   def test_get_unreplied
     message = mock('message')
+    message.stubs(:message).returns('yolo brooom bug 123')
 
     plugin = BugzillaPlugin.new
-    plugin.expects(:handle).with(message)
+    plugin.expects(:bug).with(message, '123')
     plugin.unreplied(message)
   end
 

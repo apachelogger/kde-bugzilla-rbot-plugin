@@ -26,9 +26,8 @@ class BugzillaPlugin < Plugin
     # Bot by default only handles messages directed at it directly by either
     # its name or a shortcut prefix. For the bug plugin we additionally want
     # to handle casual conversation to give context.
-    # We pass this through the handler so we don't need to re-regex the
-    # entire mapping.
-    handle(m)
+    return if m.message !~ /\bbug\s+(\d+)?/i
+    bug(m, $1)
   end
 
   def bug(m, number:)
