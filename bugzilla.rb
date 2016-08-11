@@ -27,7 +27,7 @@ class BugzillaPlugin < Plugin
     # its name or a shortcut prefix. For the bug plugin we additionally want
     # to handle casual conversation to give context.
     return if m.message !~ /\bbug\s+(\d+)?/i
-    bug(m, number: no)
+    bug(m, number: $1)
   end
 
   def bug(m, number:)
