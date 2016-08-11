@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://bugs.kde.org/jsonrpc.cgi?method=Bug.get&params=%5B%7B%22ids%22:%5B359887%5D%7D%5D
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 11 Aug 2016 13:23:36 GMT
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Set-Cookie:
+      - Bugzilla_login_request_cookie=pd16lwpX4I; path=/; secure; HttpOnly
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json; charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: '{"result":{"bugs":[{"creator":"L.Bonnaud@laposte.net","groups":[],"resolution":"FIXED","classification":"Unclassified","cf_versionfixedin":"","dupe_of":null,"creation_time":"2016-02-28T12:00:00Z","cc":["ilgrosso@apache.org","sabayon11@gmail.com","sitter@kde.org"],"severity":"normal","see_also":[],"product":"neon","url":"","is_creator_accessible":null,"status":"RESOLVED","blocks":[],"id":359887,"alias":null,"component":"general","platform":"Kubuntu
+        Packages","target_milestone":"---","flags":[],"qa_contact":"","is_confirmed":null,"priority":"NOR","cf_commitlink":"","summary":"Neon
+        packages change DISTRIB_ID in /etc/lsb-release","op_sys":"Linux","depends_on":[],"keywords":[],"version":"unspecified","is_cc_accessible":null,"whiteboard":"","assigned_to":"jr@jriddell.org","last_change_time":"2016-05-28T13:04:02Z","is_open":null}],"faults":[]},"id":"https://bugs.kde.org/","error":null}'
+    http_version: 
+  recorded_at: Thu, 11 Aug 2016 13:23:36 GMT
+recorded_with: VCR 3.0.3
