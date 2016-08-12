@@ -40,4 +40,14 @@ class PluginTest < Test::Unit::TestCase
       plugin.bug(message, number: 1)
     end
   end
+
+  def test_get_unreplied_multi_match
+    message = mock('message')
+    message.stubs(:message).returns('yolo brooom bug 123 and bug 321')
+
+    plugin = BugzillaPlugin.new
+    plugin.expects(:bug).with(message, number: '123')
+    plugin.expects(:bug).with(message, number: '321')
+    plugin.unreplied(message)
+  end
 end
