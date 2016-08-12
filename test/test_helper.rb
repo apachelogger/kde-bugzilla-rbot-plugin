@@ -25,3 +25,4 @@ $LOAD_PATH.unshift(File.absolute_path(__dir__)) # test/
 
 require 'test/unit'
 require 'mocha/test_unit' # Patch mocha in
+require 'mocha/setup' # Make sure it is set up (ruby 1.9)
