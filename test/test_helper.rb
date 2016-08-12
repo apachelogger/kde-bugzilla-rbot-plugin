@@ -7,7 +7,7 @@ begin
   )
   SimpleCov.start
 rescue LoadError
-  warn "SimpleCov not loaded"
+  warn 'SimpleCov not loaded'
 end
 
 def __dir__
