@@ -4,7 +4,7 @@ require(File.expand_path('test_helper', File.dirname(__FILE__)))
 
 # Dud base class. We mocha this for functionality later.
 class Plugin
-  def map(*args, **kwords)
+  def map(*args)
   end
 end
 
@@ -29,7 +29,7 @@ class PluginTest < Test::Unit::TestCase
 
     VCR.use_cassette(__method__) do
       plugin = BugzillaPlugin.new
-      plugin.bug(message, number: 359887)
+      plugin.bug(message, { :number => 359887 })
     end
   end
 
@@ -39,7 +39,7 @@ class PluginTest < Test::Unit::TestCase
 
     VCR.use_cassette(__method__) do
       plugin = BugzillaPlugin.new
-      plugin.bug(message, number: 1)
+      plugin.bug(message, { :number => 1 })
     end
   end
 

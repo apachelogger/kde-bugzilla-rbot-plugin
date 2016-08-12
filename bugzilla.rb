@@ -23,17 +23,18 @@ require(File.expand_path('lib/bug', File.dirname(__FILE__)))
 
 # Bugzilla Plugin
 class BugzillaPlugin < Plugin
-  def unreplied(m, **_)
+  def unreplied(m, _ = {})
     # Bot by default only handles messages directed at it directly by either
     # its name or a shortcut prefix. For the bug plugin we additionally want
     # to handle casual conversation to give context.
     return unless (match = m.message.scan(/\bbug\s+(\d+)\b/i))
     match.flatten.each do |number|
-      bug(m, number: number)
+      bug(m, {:number => number})
     end
   end
 
-  def bug(m, number:)
+  def bug(m, options = {})
+    number = options.fetch(:number)
     bug = Bugzilla::Bug.get(number)
     m.reply "KDE bug #{bug.id} in #{bug.product} (#{bug.component}) \"#{bug.summary}\" [#{bug.severity},#{bug.resolution}] #{bug.web_url}"
   rescue => e

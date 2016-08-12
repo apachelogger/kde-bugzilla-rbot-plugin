@@ -41,8 +41,8 @@ module Bugzilla
       @uri = URI.parse('https://bugs.kde.org')
     end
 
-    def call(meth, **kwords)
-      response = get(meth, **kwords)
+    def call(meth, kwords = {})
+      response = get(meth, kwords)
       raise "HTTPError #{response.status}" if response.status != 200
       response = JSONRepsonse.new(response)
       raise "JSONError #{response.error}" if response.error
@@ -51,7 +51,7 @@ module Bugzilla
 
     private
 
-    def get(meth, **kwords)
+    def get(meth, kwords = {})
       client.get do |req|
         req.url '/jsonrpc.cgi'
         req.headers['Content-Type'] = 'application/json'
