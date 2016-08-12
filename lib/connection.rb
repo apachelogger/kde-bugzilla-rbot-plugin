@@ -23,7 +23,7 @@ require 'json'
 require 'uri'
 require 'logger'
 
-require_relative 'representation'
+require(File.expand_path('representation', File.dirname(__FILE__)))
 
 module Bugzilla
   # Connection logic wrapper.

@@ -18,8 +18,8 @@
 # You should have received a copy of the GNU Lesser General Public
 # License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
-require_relative 'connection'
-require_relative 'representation'
+require(File.expand_path('connection', File.dirname(__FILE__)))
+require(File.expand_path('representation', File.dirname(__FILE__)))
 
 module Bugzilla
   # A Bug!
