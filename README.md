@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/apachelogger/kde-bugzilla-rbot-plugin.svg?branch=master)](https://travis-ci.org/apachelogger/kde-bugzilla-rbot-plugin)
+
 # Installation
 
 - Clone anywhere
