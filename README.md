@@ -3,7 +3,7 @@
 - Clone anywhere
 - Install dependencies
   - When using Bundler: `bundle install --without=development`
-  - Manually: `gem install finer_struct`
+  - Manually: `gem install finer_struct && gem install faraday`
 - Add clone path to `~/.rbot/conf.yaml`
 ```
 plugins.path:
