@@ -10,6 +10,9 @@ rescue LoadError
   warn "SimpleCov not loaded"
 end
 
+def __dir__
+  File.dirname(File.realpath(__FILE__))
+end
 
 require 'vcr'
 VCR.configure do |config|
