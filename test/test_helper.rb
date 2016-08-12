@@ -1,11 +1,15 @@
+begin
+  require 'simplecov'
+  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(
+    [
+      SimpleCov::Formatter::HTMLFormatter
+    ]
+  )
+  SimpleCov.start
+rescue LoadError
+  warn "SimpleCov not loaded"
+end
 
-require 'simplecov'
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(
-  [
-    SimpleCov::Formatter::HTMLFormatter
-  ]
-)
-SimpleCov.start
 
 require 'vcr'
 VCR.configure do |config|
