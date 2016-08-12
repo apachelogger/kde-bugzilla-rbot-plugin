@@ -18,7 +18,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-require_relative 'lib/bug'
+require(File.expand_path('lib/bug', File.dirname(__FILE__)))
 
 # Bugzilla Plugin
 class BugzillaPlugin < Plugin
