@@ -13,6 +13,7 @@ GEM
       metaclass (~> 0.0.1)
     multipart-post (2.0.0)
     power_assert (0.3.0)
+    rake (11.2.2)
     safe_yaml (1.0.4)
     test-unit (3.2.1)
       power_assert
@@ -29,6 +30,7 @@ DEPENDENCIES
   faraday
   finer_struct
   mocha
+  rake
   test-unit
   vcr
   webmock

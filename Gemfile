@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'faraday'
 gem 'finer_struct'
+gem 'rake'
 
 group :development do
   gem 'mocha'
