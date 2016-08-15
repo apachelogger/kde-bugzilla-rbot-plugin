@@ -27,7 +27,11 @@ class BugzillaPlugin < Plugin
     # Bot by default only handles messages directed at it directly by either
     # its name or a shortcut prefix. For the bug plugin we additionally want
     # to handle casual conversation to give context.
-    return unless (match = m.message.scan(/\bbug\s+(\d+)\b/i))
+    match = m.message.scan(/\bbug\s+(\d+)\b/i)
+    if match.empty?
+      # Attempt ot match URL.
+      match = m.message.scan(%r{\bhttps://bugs\.kde\.(?:[^\s]+)=(\d+)\b}i)
+    end
     match.flatten.each do |number|
       bug(m, {:number => number})
     end

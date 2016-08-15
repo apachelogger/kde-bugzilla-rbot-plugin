@@ -52,4 +52,14 @@ class PluginTest < Test::Unit::TestCase
     plugin.expects(:bug).with(message, number: '321')
     plugin.unreplied(message)
   end
+
+  def test_get_unreplied_multi_match_url
+    message = mock('message')
+    message.stubs(:message).returns('yolo brooom https://bugs.kde.org/show_bug.cgi?id=366701 and https://bugs.kde.org/show_bug.cgi?id=366702')
+
+    plugin = BugzillaPlugin.new
+    plugin.expects(:bug).with(message, number: '366701')
+    plugin.expects(:bug).with(message, number: '366702')
+    plugin.unreplied(message)
+  end
 end
