@@ -24,6 +24,7 @@ require(File.expand_path('lib/bug', File.dirname(__FILE__)))
 # Bugzilla Plugin
 class BugzillaPlugin < Plugin
   def unreplied(m, _ = {})
+    return if skip?(m)
     # Bot by default only handles messages directed at it directly by either
     # its name or a shortcut prefix. For the bug plugin we additionally want
     # to handle casual conversation to give context.
@@ -43,6 +44,14 @@ class BugzillaPlugin < Plugin
     m.reply "KDE bug #{bug.id} in #{bug.product} (#{bug.component}) \"#{bug.summary}\" [#{bug.severity},#{bug.resolution}] #{bug.web_url}"
   rescue => e
     m.notify "Bug not found (ノಠ益ಠ)ノ彡┻━┻ #{e}"
+  end
+
+  private
+
+  def skip?(m)
+    %w(#kde-bugs-activity).any? do |exclude|
+      m.channel && m.channel.name == exclude
+    end
   end
 end
 
